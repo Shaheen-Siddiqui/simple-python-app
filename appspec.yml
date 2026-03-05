@@ -3,14 +3,15 @@ os: linux
 
 files:
   - source: /
+    destination: /home/ec2-user/app
 
 hooks:
   ApplicationStop:
-    - location: simple-python-app/scripts/stop_container.sh
+    - location: scripts/stop_container.sh
       timeout: 300
       runas: root
 
   ApplicationStart:
-    - location: simple-python-app/scripts/stop_container.sh
+    - location: scripts/start_container.sh
       timeout: 300
       runas: root
